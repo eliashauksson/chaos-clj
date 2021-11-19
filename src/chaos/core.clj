@@ -3,7 +3,7 @@
 
 (def screen [1200 800])
 (def unit [10 10 ])
-(def n-points 300)
+(def n-points 1000)
 (def max-rand-n 50)
 
 (def sigma 10)
@@ -28,9 +28,10 @@
   (q/background 0))
 
 (defn draw []
-  (q/background 0)
-  (q/stroke-weight 10)
-  (q/stroke 0 255 0)
+  (println (q/current-frame-rate))
+  (q/background 20)
+  (q/stroke-weight 3)
+  (q/stroke 255 255 255)
   (reset! points (mapv lorenz-attractor @points))
   (mapv #(q/point (+ (/ (get screen 0) 2) (* (get % 0) (get unit 0)))
                   (+ (/ (get screen 1) 2) (* (get % 1) (get unit 1)))) @points))
