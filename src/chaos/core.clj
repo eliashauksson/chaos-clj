@@ -2,14 +2,14 @@
   (:require [quil.core :as q]))
 
 (def screen [1200 800])
-(def unit [10 10 ])
-(def n-points 1000)
-(def max-rand-n 50)
+(def unit [5 5])
+(def n-points 10)
+(def max-rand-n 70)
 
-(def sigma 10)
-(def rho 28)
-(def beta (/ 8 3))
-(def dt 0.005)
+(def sigma 28)
+(def rho 46.92)
+(def beta 4)
+(def dt 0.0003)
 
 (def points (atom (mapv #(into (vector) %)
                         (for [i (range n-points)
@@ -24,13 +24,11 @@
    (+ z (* dt (- (* x y) (* beta z))))])
 
 (defn setup []
-  (q/frame-rate 60)
-  (q/background 0))
+  (q/frame-rate 800)
+  (q/background 20))
 
 (defn draw []
-  (println (q/current-frame-rate))
-  (q/background 20)
-  (q/stroke-weight 3)
+  (q/stroke-weight 0.1)
   (q/stroke 255 255 255)
   (reset! points (mapv lorenz-attractor @points))
   (mapv #(q/point (+ (/ (get screen 0) 2) (* (get % 0) (get unit 0)))
