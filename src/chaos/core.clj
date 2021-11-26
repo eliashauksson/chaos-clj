@@ -29,7 +29,7 @@
 
 (defn draw []
   (q/stroke-weight 0.1)
-  (q/stroke 255 255 255)
+  (q/stroke 255 255 0)
   (reset! points (mapv lorenz-attractor @points))
   (mapv #(q/point (+ (/ (get screen 0) 2) (* (get % 0) (get unit 0)))
                   (+ (/ (get screen 1) 2) (* (get % 1) (get unit 1)))) @points))
