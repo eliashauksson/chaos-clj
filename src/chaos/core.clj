@@ -6,11 +6,6 @@
 (def n-points 10)
 (def max-rand-n 70)
 
-;(def sigma 28)
-;(def rho 46.92)
-;(def beta 4)
-;(def dt 0.0003)
-
 (def sigma 70)
 (def rho 70)
 (def beta 8)
